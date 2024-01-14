@@ -2,6 +2,7 @@ import { LinksFunction } from "@remix-run/node";
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from "@remix-run/react";
 
 import stylesheet from "~/tailwind.css";
+import ThemeSwitcher from "./components/ThemeSwitcher";
 export const links: LinksFunction = () => [{ rel: "stylesheet", href: stylesheet }];
 
 export default function App() {
@@ -14,6 +15,7 @@ export default function App() {
         <Links />
       </head>
       <body>
+        <ThemeSwitcher />
         <Outlet />
         <ScrollRestoration />
         <Scripts />

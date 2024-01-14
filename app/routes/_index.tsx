@@ -17,9 +17,10 @@ export default function Index() {
   };
 
   return (
-    <div className="flex h-screen items-center justify-center ">
+    <div className="flex min-h-screen items-center justify-center ">
       <div className="flex flex-col items-center justify-center min-w-min">
         <List list={list} setList={setList} />
+
         <div className="mt-9">
           <input
             onChange={(e) => {
@@ -28,6 +29,7 @@ export default function Index() {
             type="text"
             placeholder="Add to list"
             className="input input-bordered input-primary"
+            onKeyDown={(e) => (e.key === "Enter" ? handleButtonClick() : "")}
             value={text}
           ></input>
 
