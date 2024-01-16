@@ -23,9 +23,9 @@ export default function Drink() {
 
   const saveDrink = () => {
     if (!drinkList || !drink) return;
+    localStorage.setItem("drink-list", JSON.stringify([...drinkList, drink]));
     setDrinkList([...drinkList, drink]);
     setSelectedDrink(drink.strDrink);
-    localStorage.setItem("drink-list", JSON.stringify(drinkList));
     const list = localStorage.getItem("drink-list");
     console.log(list);
   };
@@ -64,9 +64,7 @@ export default function Drink() {
               ref={ref}
               className="mr-auto select select-primary w-full max-w-60"
             >
-              <option disabled selected>
-                Load Saved Drink
-              </option>
+              <option disabled>Load Saved Drink</option>
               {drinkList?.map((drink) => <option key={drink.strDrink}>{drink.strDrink}</option>)}
             </select>
 
